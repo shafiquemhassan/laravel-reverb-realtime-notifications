@@ -15,10 +15,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/index', [ProductController::class, 'index']);
-    Route::post('/add-product', [ProductController::class, 'store']);
-    Route::get('/notifications', [ProductController::class, 'notifications']);
-    Route::get('/mark-read', [ProductController::class, 'markRead']);
+    Route::get('/index', [ProductController::class, 'index'])->name('products.index');
+    Route::post('/add-product', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/notifications', [ProductController::class, 'notifications'])->name('notifications.index');
+    Route::get('/mark-read', [ProductController::class, 'markRead'])->name('notifications.markRead');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
